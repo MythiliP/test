@@ -1,0 +1,27 @@
+<project name="Sample usage of Salesforce Ant tasks" default="deployCode" basedir="." xmlns:sf="antlib:com.salesforce">
+
+    <property file="build.properties"/>
+    <property environment="env"/>
+    <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+        <classpath>
+            <pathelement location="../ant-salesforce.jar" />
+        </classpath>
+    </taskdef>
+	
+	<target name="proxy">
+ <property name="proxy.host" value="${sf.proxy.host}" />
+ <property name="proxy.port" value="${sf.proxy.port}" />
+ <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" />
+</target>
+
+	<target name="retrieveCode">
+      <!-- Retrieve the contents listed in the file codepkg/package.xml into the codepkg directory -->
+      <sf:retrieve username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" retrieveTarget="code" unpackaged="code/package.xml"/>
+    </target>
+	
+	<target name="deployCode" depends="proxy">
+<sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" deployRoot="\Dev_mythip@capgemini.com_23Dec_TestingGitHubCI\src\">
+</sf:deploy>
+</target>
+
+	</project>
