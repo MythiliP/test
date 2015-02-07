@@ -5,7 +5,7 @@ public class ABC{
     }
     
     public ABC(){
-        a='sfdf';
+        a='sf';
     }
     
     public void SDDF(){
