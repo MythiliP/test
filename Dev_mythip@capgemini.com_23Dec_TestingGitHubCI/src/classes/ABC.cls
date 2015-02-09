@@ -1,7 +1,7 @@
 public class ABC{
     private final String a;
     {
-        this.a='dfddfhghhhhhhhhhhhdhsf';
+        this.a='dfddhhdhsf';
     }
     
     public ABC(){
